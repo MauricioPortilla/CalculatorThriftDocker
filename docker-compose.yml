@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+    calculator_service_thrift_server:
+        build:
+            context: .
+            dockerfile: ./server_app/Dockerfile
+        network_mode: host
+        expose:
+            - "5000"
+        ports:
+            - "0.0.0.0:5000:5000"
+        volumes:
+            - ./server_app/app:/app
+            - ./thrift:/thrift
+    
+    calculator_service_thrift_client:
+        build:
+            context: .
+            dockerfile: ./client_app/Dockerfile
+        network_mode: host
+        expose:
+            - "5000"
+        ports:
+            - "0.0.0.0:5000:5000"
+        volumes:
+            - ./client_app/app:/app
+            - ./thrift:/thrift
+        stdin_open: true
+        tty: true
