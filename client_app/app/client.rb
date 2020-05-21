@@ -22,10 +22,10 @@ begin
         if ["1", "2", "3", "4"].include?(request)
             puts "Enter the first number:"
             STDOUT.flush()
-            num1 = Integer(STDIN.gets())
+            num1 = Float(STDIN.gets())
             puts "Enter the second number:"
             STDOUT.flush()
-            num2 = Integer(STDIN.gets())
+            num2 = Float(STDIN.gets())
         end
         case request
             when "1"
